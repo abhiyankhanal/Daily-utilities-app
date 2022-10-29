@@ -7,16 +7,15 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (context) =>
-              const MyHomePage(title: 'Flutter Demo Home Page'),
+          builder: (context) => MyHomePage(),
         );
       case '/second':
         return MaterialPageRoute(
-          builder: (context) => const MyHomePage(title: 'Second'),
+          builder: (context) => MyHomePage(),
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => const MyHomePage(title: 'Second'),
+          builder: (context) => MyHomePage(),
         );
     }
   }

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:simple/presentation/screens/expenses.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -18,9 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Expenses',
-    ),
+    Expenses(),
     Text(
       'Index 1: Shop List',
     ),
@@ -32,9 +27,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -47,14 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.timelapse),
-            label: 'Reminder',
+            label: 'Reminderdd',
           ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions[_selectedIndex],
       ),
     );
   }
