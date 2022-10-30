@@ -6,6 +6,8 @@ const Color mainCol = Color.fromARGB(255, 100, 76, 198);
 const Color lightCol = Color.fromARGB(255, 168, 146, 255);
 //Background Color - white
 const Color bgCol = Color.fromRGBO(255, 255, 255, 1.0);
+//OffWhite
+const Color offWhite = Color.fromARGB(255, 244, 244, 255);
 //Second Color - yellow - header
 const Color secondCol = Color.fromRGBO(253, 180, 21, 1.0);
 //Third Color - blackgrey - subtitle

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:simple/presentation/screens/add_expense.dart';
 import 'package:simple/presentation/screens/expenses.dart';
 
-class MyHomePage extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -15,10 +16,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
+    AddExpense(),
     Expenses(),
-    Text(
-      'Index 1: Shop List',
-    ),
     Text(
       'Index 2: Reminder',
     ),

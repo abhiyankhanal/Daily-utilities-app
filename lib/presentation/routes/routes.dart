@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simple/presentation/screens/add_expense.dart';
+import 'package:simple/presentation/screens/expenses.dart';
 import '../screens/home.dart';
 
 class AppRouter {
@@ -7,15 +9,15 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (context) => MyHomePage(),
+          builder: (context) => Home(),
         );
       case '/second':
         return MaterialPageRoute(
-          builder: (context) => MyHomePage(),
+          builder: (context) => Expenses(),
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => MyHomePage(),
+          builder: (context) => AddExpense(),
         );
     }
   }
