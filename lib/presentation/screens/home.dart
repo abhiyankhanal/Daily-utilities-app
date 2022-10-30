@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple/presentation/screens/add_expense.dart';
 import 'package:simple/presentation/screens/expenses.dart';
+import 'package:simple/presentation/screens/shop_list.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     Expenses(),
-    AddExpense(),
+    ShopList(),
     Text(
       'Index 2: Reminder',
     ),
