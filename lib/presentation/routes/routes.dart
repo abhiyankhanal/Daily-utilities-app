@@ -11,13 +11,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => Home(),
         );
-      case '/second':
+      case '/add_expense':
         return MaterialPageRoute(
-          builder: (context) => Expenses(),
+          builder: (context) => AddExpense(),
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => AddExpense(),
+          builder: (context) => Home(),
         );
     }
   }

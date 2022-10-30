@@ -16,8 +16,8 @@ class _HomeState extends State<Home> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    AddExpense(),
     Expenses(),
+    AddExpense(),
     Text(
       'Index 2: Reminder',
     ),

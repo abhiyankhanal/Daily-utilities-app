@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple/presentation/const/colors.dart';
-import 'package:simple/presentation/const/font_style.dart';
-import 'package:simple/presentation/model/expense_tem.dart';
+import 'package:simple/presentation/const/styles.dart';
+import 'package:simple/presentation/model/expense_item.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -18,7 +18,7 @@ class _ExpensesState extends State<Expenses> {
   int itemTotal = 0;
   void calcTotal() {
     List<int> priceList = [];
-    itemList.forEach((e) => priceList.add(e.price));
+    itemList.forEach((e) => priceList.add(e.price!));
     itemTotal = priceList.fold(0, (previous, current) => previous + current);
   }
 
@@ -73,7 +73,7 @@ class _ExpensesState extends State<Expenses> {
                               // ignore: prefer_const_literals_to_create_immutables
                               children: [
                                 Text(
-                                  e.name,
+                                  e.name!,
                                   style: itemStyle,
                                 ),
                                 Text(
@@ -117,7 +117,9 @@ class _ExpensesState extends State<Expenses> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {print("buttonclicked"), calcTotal()},
+        onPressed: () {
+          Navigator.of(context).pushNamed("/add_expense");
+        },
         child: IconButton(
           onPressed: null,
           icon: Icon(
