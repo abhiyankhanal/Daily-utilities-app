@@ -4,14 +4,14 @@ import 'package:simple/presentation/const/styles.dart';
 import 'package:simple/presentation/model/expense_item.dart';
 
 class Expenses extends StatefulWidget {
-  const Expenses({super.key});
+  const Expenses({super.key, ExpenseItem? expenseItem});
 
   @override
   State<Expenses> createState() => _ExpensesState();
 }
 
 class _ExpensesState extends State<Expenses> {
-  List<ExpenseItem> itemList = [
+  List itemList = [
     ExpenseItem(name: "Food", price: 300),
     ExpenseItem(name: "Food", price: 300)
   ];
@@ -26,6 +26,7 @@ class _ExpensesState extends State<Expenses> {
   void initState() {
     // TODO: implement initState
     calcTotal();
+    print("Length of itemlist here ${itemList.length}");
     super.initState();
   }
 
@@ -117,10 +118,17 @@ class _ExpensesState extends State<Expenses> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed("/add_expense");
+        onPressed: () async {
+          ExpenseItem? item = await Navigator.of(context)
+              .pushNamed("/add_expense")
+              .then((value) {
+            setState(() {
+              itemList.add(value);
+              calcTotal();
+            });
+          });
         },
-        child: IconButton(
+        child: const IconButton(
           onPressed: null,
           icon: Icon(
             Icons.add,

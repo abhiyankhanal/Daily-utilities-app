@@ -91,17 +91,16 @@ class _AddExpenseState extends State<AddExpense> {
             color: mainCol,
             child: const Text("Submit"),
             onPressed: () {
+              item?.name = nameController.text;
+              item?.price = int.parse(amountController.text).abs();
               if (_formKey.currentState!.validate()) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
+                  SnackBar(
+                    content: Text(
+                        "Added item:${item?.name} of price:${item?.price}"),
+                  ),
                 );
-                item?.name = nameController.text;
-                item?.price = int.parse(amountController.text).abs();
-                print(
-                    "-----------------------/n/n/n New Message here-----------------------------");
-                print("Name here: ${item?.name}");
-                print(item?.price.toString());
-                Navigator.of(context).pushNamed("/");
+                Navigator.pop(context, item);
               }
             },
           ),
